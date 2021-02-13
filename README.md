@@ -1,9 +1,11 @@
 # MoA-Kaggle
 
-The challenge in this competition was to develop an algorithm to predict the Mechanism of Action of a drug compound given it's cellular and genetic expression. The dataset for this project was collected in collaboration between the Connectivity Map, a project within the Broad Institute of MIT and Harvard, Laboratory for Innovation Science at Harvard (LISH), and the NIH Common Funds Library of Integrated Network-Based Cellular Signatures (LINCS). It comprised of a training set of 23k+ examples with features such as genetic expression and cell viability in addition to information pertaining to treatment plan (dosage, duration etc.).
+The challenge in this competition was to develop a predictive algorithm that takes as input treatment plans, cellular and genetic information for 5000+ drug compounds and predicts the mechanism of action of these drugs. 
 
-I approached the problem by breaking it down into multiple steps:
-(1) Exploratory Data Analysis to identify collinearity between attributes
-(2) Feature extraction (through FastICA) to extract the most informative feature set.
-(3) Training a fully connected (3 hidden layers) neural network model with cross validation. 
-(4) Prediction on test dataset.
+I worked on this project by breaking it down into several steps: 
+1. Exploratory Data Analysis: This helped me familiarize myself with the dataset and understand which features were correlated and how much redundancy existed in the dataset.
+2. Feature Extraction: Genetic information and cellular information is a result of mixing at a physiological level. To unmix and identify the most important features, I used Independent Component Analysis. 
+3. Model Generation: I used a neural network model to generate predictions. The model is three layer deep and incorporates dropout regularization, k-fold cross validation and early stopping to prevent model overfitting. The model was trained on Kaggle provided GPU. 
+4. Evaluation: The model was evaluated using a custom metric provided by the competition administration (my model scored a loss of 0.01678 compared to the winning model score of 0.01599).
+
+![Summary](https://github.com/smallik92/MoA-Kaggle/blob/main/Figure%204.png)
